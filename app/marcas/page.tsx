@@ -1,0 +1,4 @@
+import Link from 'next/link'
+import { products } from '@/lib/catalog'
+export const metadata={title:'Marcas | Chinhundo'}
+export default function BrandsPage(){const brands=[...new Set(products.map(p=>p.brand))];return <main className="mx-auto max-w-5xl px-5 py-14 lg:px-8"><p className="text-xs uppercase tracking-[.25em] text-[var(--brand)]">Curadoria</p><h1 className="mt-3 font-serif text-5xl">Marcas</h1><div className="mt-12 grid gap-4 sm:grid-cols-2">{brands.map(brand=><Link href={`/produtos?marca=${encodeURIComponent(brand)}`} key={brand} className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-7 transition hover:-translate-y-1 hover:border-[var(--brand)]"><span className="font-serif text-2xl">{brand}</span><p className="mt-2 text-sm text-[var(--muted)]">{products.filter(p=>p.brand===brand).length} produtos</p></Link>)}</div></main>}
