@@ -1,8 +1,5 @@
 import { ProductCard } from '@/components/product-card'
-const products = [
-  { slug: 'serum-brilho-natural', name: 'Sérum Brilho Natural', brand: 'Chinhundo Skin', price: 'Kz 18.500', image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=900&q=85', badge: 'Novo' },
-  { slug: 'batom-matte-terracota', name: 'Batom Matte Terracota', brand: 'NARS', price: 'Kz 12.900', image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=900&q=85' },
-  { slug: 'oleo-corporal-dourado', name: 'Óleo Corporal Dourado', brand: 'The Body Shop', price: 'Kz 15.750', image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=900&q=85' },
-  { slug: 'blush-creme-rose', name: 'Blush Creme Rosé', brand: 'Rare Beauty', price: 'Kz 14.200', image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&q=85', badge: 'Favorito' },
-]
-export default function ProductsPage(){return <main className="mx-auto max-w-7xl px-5 py-14 lg:px-8"><p className="text-xs uppercase tracking-[0.25em] text-[var(--brand)]">A nossa seleção</p><h1 className="mt-3 font-serif text-5xl">Todos os produtos</h1><div className="mt-12 grid gap-8 lg:grid-cols-[220px_1fr]"><aside className="hidden rounded-2xl border border-[var(--line)] p-5 lg:block"><p className="text-sm font-medium">Filtrar por</p><div className="mt-6 flex flex-col gap-5 text-sm text-[var(--muted)]"><span>Categoria</span><span>Marca</span><span>Tom / cor</span><span>Tipo de pele</span><span>Faixa de preço</span></div></aside><div className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-6">{products.map(p=><ProductCard key={p.slug} product={p}/>)}</div></div></main>}
+import { FilterControls } from '@/components/commerce-controls'
+import { products } from '@/lib/catalog'
+export const metadata={title:'Produtos | Chinhundo'}
+export default function ProductsPage(){return <main className="mx-auto max-w-7xl px-5 py-14 lg:px-8"><p className="text-xs uppercase tracking-[.25em] text-[var(--brand)]">A nossa seleção</p><h1 className="mt-3 font-serif text-5xl">Todos os produtos</h1><div className="mt-8 flex flex-wrap items-center justify-between gap-4"><FilterControls/><select aria-label="Ordenar produtos" className="rounded-full border border-[var(--line)] bg-[var(--surface)] px-4 py-2 text-sm"><option>Mais relevantes</option><option>Preço mais baixo</option><option>Novidades</option></select></div><div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 sm:gap-6">{products.map(p=><ProductCard key={p.slug} product={p}/>)}</div></main>}

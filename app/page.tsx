@@ -1,13 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { ProductCard } from '@/components/product-card'
-
-const products = [
-  { slug: 'serum-brilho-natural', name: 'Sérum Brilho Natural', brand: 'Chinhundo Skin', price: 'Kz 18.500', image: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=900&q=85', badge: 'Novo' },
-  { slug: 'batom-matte-terracota', name: 'Batom Matte Terracota', brand: 'NARS', price: 'Kz 12.900', image: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=900&q=85' },
-  { slug: 'oleo-corporal-dourado', name: 'Óleo Corporal Dourado', brand: 'The Body Shop', price: 'Kz 15.750', image: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=900&q=85' },
-  { slug: 'blush-creme-rose', name: 'Blush Creme Rosé', brand: 'Rare Beauty', price: 'Kz 14.200', image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&q=85', badge: 'Favorito' },
-]
+import { products } from '@/lib/catalog'
 
 export default function Home() { return <main>
   <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-20 pt-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8 lg:pt-20"><div><div className="mb-8 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-[var(--brand)]"><Sparkles size={15} /> Curadoria Chinhundo</div><h1 className="max-w-xl font-serif text-5xl leading-[.95] tracking-tight sm:text-7xl">A tua beleza,<br /><em className="font-normal text-[var(--brand)]">do teu jeito.</em></h1><p className="mt-7 max-w-md text-base leading-7 text-[var(--muted)]">Cosméticos escolhidos para celebrar a tua pele, a tua cor e tudo o que te torna única.</p><div className="mt-9 flex flex-wrap gap-3"><Link href="/produtos" className="inline-flex items-center gap-3 rounded-full bg-[var(--brand)] px-6 py-3 text-sm font-medium text-white transition hover:brightness-110">Explorar coleção <ArrowRight size={16} /></Link><Link href="/categorias/skincare" className="inline-flex items-center rounded-full border border-[var(--line)] px-6 py-3 text-sm hover:border-[var(--brand)]">Conhecer skincare</Link></div></div><div className="relative aspect-[4/4.7] overflow-hidden rounded-[2rem] bg-[var(--surface)]"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=1200&q=85" alt="Produtos de beleza em tons quentes" className="h-full w-full object-cover" /><div className="absolute bottom-5 left-5 rounded-xl border border-white/20 bg-black/35 px-4 py-3 backdrop-blur"><p className="text-xs text-white/70">Ritual da semana</p><p className="mt-1 text-sm text-white">Glow natural, todos os dias.</p></div></div></section>

@@ -1,0 +1,11 @@
+export type Product = { slug:string; name:string; brand:string; category:string; price:number; oldPrice?:number; image:string; badge?:string; rating:number; colors?:string[]; description:string }
+export const products: Product[] = [
+ {slug:'serum-brilho-natural',name:'Sérum Brilho Natural',brand:'Chinhundo Skin',category:'Skincare',price:18500,image:'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=900&q=85',badge:'Novo',rating:4.9,colors:['#c8896b','#9f654f'],description:'Sérum iluminador de textura leve para uma pele luminosa e confortável.'},
+ {slug:'batom-matte-terracota',name:'Batom Matte Terracota',brand:'NARS',category:'Maquilhagem',price:12900,image:'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=900&q=85',rating:4.8,colors:['#a9462d','#7b2d27','#c66a4f'],description:'Cor intensa e acabamento mate confortável que acompanha o teu dia.'},
+ {slug:'oleo-corporal-dourado',name:'Óleo Corporal Dourado',brand:'The Body Shop',category:'Corpo',price:15750,image:'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=900&q=85',rating:4.7,description:'Óleo nutritivo com brilho dourado subtil para um ritual de cuidado.'},
+ {slug:'blush-creme-rose',name:'Blush Creme Rosé',brand:'Rare Beauty',category:'Maquilhagem',price:14200,image:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&q=85',badge:'Favorito',rating:4.9,colors:['#d7837e','#b9585d','#efaaa0'],description:'Blush cremoso fácil de espalhar, com cor fresca e acabamento natural.'},
+ {slug:'gel-limpeza-puro',name:'Gel de Limpeza Puro',brand:'Chinhundo Skin',category:'Skincare',price:9800,image:'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=900&q=85',rating:4.6,description:'Limpeza suave para retirar impurezas sem ressecar.'},
+ {slug:'paleta-tons-da-terra',name:'Paleta Tons da Terra',brand:'Huda Beauty',category:'Maquilhagem',price:24500,image:'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=900&q=85',badge:'Mais vendido',rating:4.8,colors:['#b87557','#8e4c38'],description:'Uma seleção de tons quentes para looks simples ou intensos.'},
+]
+export const formatPrice=(value:number)=>new Intl.NumberFormat('pt-AO',{style:'currency',currency:'AOA',maximumFractionDigits:0}).format(value).replace('AOA','Kz')
+export const getProduct=(slug:string)=>products.find(p=>p.slug===slug)
